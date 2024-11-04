@@ -21,7 +21,7 @@ const Library = () => {
         <AiOutlinePlus
           className="text-neutral-400 cursor-pointer hover: text-white transition"
           size={20}
-          onClick={onclick}
+          onClick={onClick}
         />
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">List of Song!</div>
