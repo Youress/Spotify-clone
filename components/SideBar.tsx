@@ -6,11 +6,13 @@ import { HiHome, HiSearch } from "react-icons/hi";
 import Box from "@/components/Box";
 import SideBarItem from "@/components/SideBarItem";
 import Library from "./Library";
+import { Song } from "@/types";
 
 interface sidebarProps {
   children: React.ReactNode;
+  songs :Song[]
 }
-const SideBar: React.FC<sidebarProps> = ({ children }) => {
+const SideBar: React.FC<sidebarProps> = ({ children, songs }) => {
   const pathname = usePathname();
   console.log(pathname);
 
@@ -43,7 +45,7 @@ const SideBar: React.FC<sidebarProps> = ({ children }) => {
           </div>
         </Box>
         <Box className="overflow-y-auto h-full">
-          <Library/>
+          <Library songs={songs}/>
         </Box>
       </div>
       <main className="h-full flex-1 overflow-y-auto py-2">{children}</main>

@@ -6,6 +6,7 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
+import getSongByUserId from "@/actions/getSongByUserId";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,12 +23,13 @@ export const metadata: Metadata = {
   title: "Chill",
   description: "Listen to music",
 };
-
-export default function RootLayout({
+export const revalidate = 0;
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userSongs = await getSongByUserId()
   return (
     <html lang="en">
       <body
@@ -37,7 +39,7 @@ export default function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider/>
-            <SideBar>{children}</SideBar>
+            <SideBar songs={userSongs}>{children}</SideBar>
           </UserProvider>
         </SupabaseProvider>
       </body>
