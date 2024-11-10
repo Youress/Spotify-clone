@@ -22,6 +22,7 @@ const SearchInput = () => {
   }, [debounceValue,router]);
   return <div>
     <Input
+    className="rounded-md"
     placeholder="What you want to listen to"
     value={value}
     onChange={(e)=>setValue(e.target.value)}
