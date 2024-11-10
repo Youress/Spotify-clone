@@ -1,6 +1,7 @@
 import getSongByTitle from "@/actions/getSongByTitle";
 import Header from "@/components/Header";
 import SearchInput from "@/components/SearchInput";
+import SeacrhContent from "./components/SeacrhContent";
 
 interface SerachProps {
   searchParams: {
@@ -8,7 +9,7 @@ interface SerachProps {
   };
 }
 const Search = async ({ searchParams }: SerachProps) => {
-  const songs = getSongByTitle(searchParams.title);
+  const songs = await getSongByTitle(searchParams.title);
   return (
     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
       <Header className="from-bg-neutral-900">
@@ -17,6 +18,7 @@ const Search = async ({ searchParams }: SerachProps) => {
           <SearchInput />
         </div>
       </Header>
+      <SeacrhContent songs={songs} />
     </div>
   );
 };
