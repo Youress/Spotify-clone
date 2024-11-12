@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import SearchInput from "@/components/SearchInput";
 import SeacrhContent from "./components/SeacrhContent";
 
+export const revalidate = 0;
+
 interface SerachProps {
   searchParams: {
     title: string;
