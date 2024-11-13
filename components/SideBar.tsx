@@ -37,7 +37,7 @@ const SideBar: React.FC<sidebarProps> = ({ children, songs }) => {
 
   return (
     <div className={twMerge(`flex h-full`,player.activated && "h-calc(100%-80px")}>
-      <div className="hidde md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
+      <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
         <Box className="">
           <div className="flex flex-col gap-y-4 px-5 py-4">
             {routes.map((item) => (

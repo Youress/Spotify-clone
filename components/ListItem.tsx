@@ -9,7 +9,7 @@ interface ListItemProps {
   name: string;
   href: string;
 }
-const ListItem = ({ image, name, href }) => {
+const ListItem:React.FC<ListItemProps> = ({ image, name, href }) => {
   const router = useRouter();
 
   const onCLick = () => {
