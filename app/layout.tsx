@@ -8,6 +8,7 @@ import ModalProvider from "@/providers/ModalProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import getSongByUserId from "@/actions/getSongByUserId";
 import Player from "@/components/Player";
+import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +32,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const userSongs = await getSongByUserId()
+  const products = await getActiveProductsWithPrices();
+
   return (
     <html lang="en">
       <body
@@ -39,7 +42,7 @@ export default async function RootLayout({
         <ToasterProvider/>
         <SupabaseProvider>
           <UserProvider>
-            <ModalProvider/>
+            <ModalProvider products={products}/>
             <SideBar songs={userSongs}>{children}</SideBar>
             <Player/>
           </UserProvider>
