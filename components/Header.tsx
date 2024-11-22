@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const router = useRouter();
   const authModal = useAuthModal();
   const player = usePlayer()
-
+// change later
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
 
